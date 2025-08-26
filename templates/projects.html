@@ -1,0 +1,12 @@
+
+{% extends "base.html" %}
+{% block content %}
+<section class="container">
+  <h2>All Projects</h2>
+  <ul>
+    <li><a href="{{ url_for('project_hospital') }}">Hospital Demo</a></li>
+    <li><a href="{{ url_for('project_ecommerce') }}">E-commerce Demo</a></li>
+    <li><a href="{{ url_for('project_sentiment') }}">Sentiment Analyzer</a></li>
+  </ul>
+</section>
+{% endblock %}

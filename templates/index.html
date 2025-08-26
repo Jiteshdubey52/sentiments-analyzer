@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+
+<section id="hero">
+    <nav id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="nav-logo">Jitesh Sharma</a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+    <div class="text-left">
+        <h1 class="text-5xl font-extrabold"><span>I'm Jitesh Sharma</span></h1>
+        <h2 class="text-2xl mt-4 text-gray-300">Web Developer | AI Enthusiast</h2>
+        <p class="mt-6 text-lg text-gray-400 max-w-xl">Crafting interactive websites, AI-powered apps, and real-world projects.</p>
+    </div>
+    <div><img src="{{ url_for('static', filename='img/your_image.jpg') }}" alt="Developer Photo"></div>
+</section>
+<section id="about">
+<h2>About Me</h2>
+<p>I am Jitesh Sharma, a passionate web developer who loves bringing ideas to life using clean and efficient code. I started my coding journey by learning the basics of HTML, CSS, and JavaScript, and gradually moved into backend development with Python and PHP.</p>
+<p>Beyond coding, I am fascinated by AI, machine learning, and how technology can solve real-world problems. I enjoy experimenting with new tools, designing creative projects, and contributing to open-source communities.</p>
+<p>My mission is simple: keep learning, keep building, and keep innovating. This portfolio showcases my journey and some of my best demo projects in web and AI.</p>
+<a href="#contact" class="scroll-btn">📩 Contact Me</a>
+</section>
+<section id="projects" class="grid">
+<div class="card"><img src="{{ url_for('static', filename='img/project1.jpg') }}"><h3>Hospital Management</h3><p>PHP/MySQL demo</p></div>
+<div class="card"><img src="{{ url_for('static', filename='img/project2.jpg') }}"><h3>E-commerce</h3><p>Mini store demo</p></div>
+<div class="card"><img src="{{ url_for('static', filename='img/project3.jpg') }}"><h3>Sentiment Analyzer</h3><p>Python demo</p></div>
+</section>
+<section id="contact" class="container contact">
+  <h2>Contact Me</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+  <form action="{{ url_for('contact') }}" method="post" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+{% endblock %}

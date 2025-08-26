@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% block content %}
+<section class="container">
+  <h2>Mini E-commerce Demo</h2>
+  <div class="products grid">
+    {% for p in products %}
+    <div class="product card">
+      <img src="{{ p.img }}" alt="{{ p.name }}" />
+      <h4>{{ p.name }}</h4>
+      <p class="price">{{ p.price }}</p>
+      <p class="muted">{{ p.desc }}</p>
+      <button class="btn">Add to cart</button>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="muted">This is a static demo to show frontend + product layout — integrate with PHP/MySQL for full e-commerce.</p>
+</section>
+{% endblock %}

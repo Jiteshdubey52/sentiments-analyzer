@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% block content %}
+<section class="container">
+  <h2>Sentiment Analyzer</h2>
+  <p>Type a sentence and our tiny analyzer will guess the sentiment.</p>
+  <form method="post" class="sentiment-form">
+    <textarea name="text" placeholder="Type something..." required>{{ text }}</textarea>
+    <button class="btn">Analyze</button>
+  </form>
+
+  {% if result %}
+  <div class="result card">
+    <h3>Result: {{ result.label }}</h3>
+    <p>Score: {{ result.score }} ( +{{ result.pos }} / -{{ result.neg }} )</p>
+    <div class="example">Tip: This is rule-based. For production, use a trained model (HuggingFace/TensorFlow).</div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
